@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Dengue Volta Redonda{% endblock %}
+
+{% block head %}
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+{% endblock %}
+
+{% block style %}
+    .badge-green {
+    background-color: green;
+    }
+
+    .badge-yellow {
+    background-color: yellow;
+    }
+
+    .badge-orange {
+    background-color: orange;
+    }
+
+    .badge-red {
+    background-color: red;
+    }
+{% endblock %}
+
+{%block content%}
+    <p><p><h4>Número de casos estimados</h4><p><p>
+
+    <div id="map" style="height: 500px;"></div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="{{ url_for('static', filename='javascript/scripts.js') }}"></script>
+
+    <div class="container text-left">
+        <div class="row">
+            <div class="col">
+                <p><p><h5>Níveis de atenção</h5><p><p>
+                <div class="badge badge-green text-light fs-6" style="width: 10rem;">
+                Nível Verde
+                </div>
+                <p>Condições climáticas desfavoráveis, seja por baixa temperatura ou baixa umidade, e baixa incidência de casos.</p><p><p>
+                <div class="badge badge-yellow text-light fs-6" style="width: 10rem;">
+                Nível Amarelo
+                </div>
+                <p>Condições climáticas favoráveis ao aumento da população vetorial e transmissão de arboviroses.</p><p><p>
+                <div class="badge badge-orange text-light fs-6" style="width: 10rem;">
+                Nível Laranja
+                </div>
+                <p>Transmissão aumentada e sustentada de arbovírus.</p><p><p>
+                <div class="badge badge-red text-light fs-6" style="width: 10rem;">
+                Nível Vermelho
+                </div>
+                <p>Alta incidência, acima dos 90% históricos.</p>
+            </div>
+            <div class="col">
+                {% for item in data_items %}
+                <p><p><h5>{{ item['Casos Estimados'] }} Casos Estimados</h5>
+                    <p>São estimados {{ item['Casos Estimados'] }} casos na semana {{ item['Semana Epidemiológica'] }} com a taxa de incidência estimada em {{ item['Incidência'] }}. Atualmente, o nível de alerta é {{ item['Nível'] }}.</p>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
