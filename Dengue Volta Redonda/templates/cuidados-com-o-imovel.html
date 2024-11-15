@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Cuidados com o Imóvel{% endblock %}
+
+{%block content%}
+    <h1>Cuidados com o Imóvel</h1>
+    <p>A maioria dos criadouros é encontrada nos pátios e interior dos imóveis. Vistorie uma vez por semana seu imóvel.</p>
+    <div>
+        <img class="img-fluid" src="{{url_for('static', filename='todos contra a dengue.png')}}" style="width: 500px; height: auto;" alt="Cuidados para evitar a proliferação do mosquito da dengue em imóveis.">
+    </div>
+{% endblock %}

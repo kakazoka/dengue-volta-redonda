@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Suspeita de Dengue{% endblock %}
+
+{% block style %}
+.custom-list-item {
+    border-width: 10px;
+}
+{% endblock %}
+
+{%block content%}
+    <h1>Suspeita de Dengue</h1>
+    <h3>Os Sintomas</h3>
+    <p>Caso você perceba diferença em seu estado de saúde fique atento aos sintomas da doença, que podem ser parecidos com outros agravos.</p>
+    <div>
+        <img class="img-fluid" src="{{url_for('static', filename='sintomas da dengue.png')}}" style="width: 500px; height: auto;" alt="Sintomas da dengue.">
+    </div>
+    <h3>Centros de Hidratação</h3>
+    <p>Volta Redonda conta com quatro centros de hidratação funcionando diariamente, de segunda a domingo.</p>
+    <ul>
+        <li>Unidade de Saúde da Família (UBSF) São Geraldo | 24h</li>
+        <li>Unidade de Saúde da Família (UBSF) 249 | 7h às 22h</li>
+        <li>Unidade de Saúde da Família (UBSF) Santa Cruz | 7h às 22h</li>
+        <li>Academia da Saúde do Volta Grande | 7h às 19h</li>
+    </ul>
+    <p>A Vigilância Ambiental de Volta Redonda recomenda que, ao apresentar um dos sintomas, que procure, imediatamente, a Unidade Básica de Saúde (UBS) ou de Saúde da Família (UBSF) mais próxima de casa para atendimento médico.</p>
+{% endblock %}

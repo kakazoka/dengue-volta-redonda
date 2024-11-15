@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    {{ bootstrap.load_css() }}
+
+    <title>{% block title %}{% endblock %}</title>
+
+    {%  block head %}{% endblock %}
+
+<style>
+    .card {
+        border-color: white;
+    }
+
+    .navbar {
+        background-color: #35768c;
+    }
+
+    .navbar-brand {
+        color: white;
+    }
+
+    .navbar-brand:hover {
+        color: white !important;
+    }
+
+    .nav-link {
+        color: white;
+    }
+
+    .nav-link:hover {
+        color: white !important;
+    }
+
+    .dropdown-menu {
+        background-color: #35768c;
+    }
+
+    .dropdown-item {
+        color: white;
+    }
+
+    .dropdown-item:hover {
+        color: white !important;
+        background-color: transparent;
+    }
+
+    {% block style %}{% endblock %}
+
+</style>
+</head>
+<body>
+<div class="card" style="width: 80rem;">
+    <div class="card-img-top d-flex align-items-center">
+        <div>
+            <img class="img-fluid" src="{{url_for('static', filename='logo.svg')}}" alt="Mosquito da dengue sob um símbolo de bloqueio ao lado do nome do site.">
+        </div>
+        <p class="col p-2 m-0"><h6>Monitoramento em Tempo Real das Estatísticas da Dengue em Volta Redonda</h6>
+    </div>
+</div>
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Início</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Monitoramento</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/plano-de-contingencia">Plano de Contingência</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/alertas-epidemiologicos">Alertas Epidemiológicos</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/notificacoes-de-suspeitas">Notificações de Suspeitas</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cidadão</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/cuidados-com-o-imovel">Cuidados com o Imóvel</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/cuidados-em-viagens">Cuidados em Viagens</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/suspeita-de-dengue">Suspeita de Dengue</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/estou-com-dengue">Estou com Dengue</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/denuncie-focos-de-mosquito">Denuncie Focos de Mosquito</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sobre o Mosquito</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/habitat">Habitat</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/ciclo-de-vida">Ciclo de Vida</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.voltaredonda.rj.gov.br/noticias/29-sms/">Notícias</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    {% block content %}{% endblock %}
+
+{{ bootstrap.load_js() }}
+
+</body>
+</html>
